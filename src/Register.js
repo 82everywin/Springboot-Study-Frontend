@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Form, Button, Container, Card } from 'react-bootstrap';
+import { BsArrowLeft } from 'react-icons/bs'; // 화살표 아이콘 가져오기
 
 function Register() {
     const navigate = useNavigate();
@@ -26,7 +27,10 @@ function Register() {
 
     return (
         <Container className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
-            <Card style={{ width: '25rem' }} className="p-4">
+            <Card style={{ width: '25rem' }} className="p-4 position-relative">
+                <Link to="/" className="position-absolute top-0 start-0 m-3">
+                    <BsArrowLeft size={24} /> {/* 뒤로가기 화살표 */}
+                </Link>
                 <h2 className="text-center mb-4">회원가입</h2>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formEmail" className="mb-3">
@@ -53,7 +57,7 @@ function Register() {
                         />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit" className="w-100">
+                    <Button variant="primary" type="submit" className="w-100 mb-2">
                         회원가입
                     </Button>
                 </Form>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Form, Button, Container, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { Form, Button, Container, Card, Row, Col } from 'react-bootstrap';
+import { BsArrowLeft } from 'react-icons/bs'; // 화살표 아이콘
 
 function Login() {
     const [formData, setFormData] = useState({ email: '', password: '' });
@@ -23,7 +25,10 @@ function Login() {
 
     return (
         <Container className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
-            <Card style={{ width: '25rem' }} className="p-4">
+            <Card style={{ width: '25rem' }} className="p-4 position-relative">
+                <Link to="/" className="position-absolute top-0 start-0 m-3">
+                    <BsArrowLeft size={24} /> {/* 뒤로가기 화살표 */}
+                </Link>
                 <h2 className="text-center mb-4">로그인</h2>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formEmail" className="mb-3">
@@ -50,18 +55,34 @@ function Login() {
                         />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit" className="w-100 mb-2">
+                    <Button variant="primary" type="submit" className="w-100 mb-3">
                         로그인
                     </Button>
 
-                    <div className="text-center">
+                    <div className="text-center mt-4">
                         <h5>소셜 로그인</h5>
-                        <a href="http://localhost:8080/oauth2/authorization/google" className="btn btn-danger w-100 mb-2">
-                            구글 로그인
-                        </a>
-                        <a href="http://localhost:8080/oauth2/authorization/kakao" className="btn btn-warning w-100">
-                            카카오 로그인
-                        </a>
+                        <Row className="justify-content-center">
+                            <Col xs="auto">
+                                <a href="http://localhost:8080/oauth2/authorization/google">
+                                    <div className="social-logo">
+                                        <img
+                                            src="/images/google.png"
+                                            alt="Google"
+                                        />
+                                    </div>
+                                </a>
+                            </Col>
+                            <Col xs="auto" className="ms-3"> {/* 간격 조정 */}
+                                <a href="http://localhost:8080/oauth2/authorization/kakao">
+                                    <div className="social-logo">
+                                        <img
+                                            src="/images/kakao.png"
+                                            alt="Kakao"
+                                        />
+                                    </div>
+                                </a>
+                            </Col>
+                        </Row>
                     </div>
                 </Form>
             </Card>

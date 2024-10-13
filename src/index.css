@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.social-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #ddd; /* 테두리 색상 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border-color 0.3s;
+}
+
+.social-logo img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.social-logo:hover {
+  border-color: #555; /* 마우스 호버 시 테두리 색상 변경 */
+}
