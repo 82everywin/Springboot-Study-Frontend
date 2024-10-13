@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // useNavigate 사용
 import { Form, Button, Container, Card, Row, Col } from 'react-bootstrap';
 import { BsArrowLeft } from 'react-icons/bs'; // 화살표 아이콘
 
-function Login() {
+function Login({ onLogin }) { // App.js로부터 onLogin 전달받음
     const [formData, setFormData] = useState({ email: '', password: '' });
+    const navigate = useNavigate(); // 페이지 이동을 위한 navigate 사용
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -15,8 +16,10 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:8080/api/users/login', formData);
+            await axios.post('http://localhost:8080/api/members/login', formData);
+            onLogin(); // 로그인 성공 시 상태 업데이트
             alert('로그인 성공!');
+            navigate('/'); // 로그인 성공 후 메인 페이지로 이동
         } catch (error) {
             alert('로그인 실패!');
             console.error(error);
@@ -72,7 +75,7 @@ function Login() {
                                     </div>
                                 </a>
                             </Col>
-                            <Col xs="auto" className="ms-3"> {/* 간격 조정 */}
+                            <Col xs="auto" className="ms-3">
                                 <a href="http://localhost:8080/oauth2/authorization/kakao">
                                     <div className="social-logo">
                                         <img
