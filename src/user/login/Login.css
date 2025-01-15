@@ -1,0 +1,100 @@
+/* Login.css */
+.login-container {
+    background-color: rgb(31, 31, 31);
+    min-height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login-content {
+    background: rgb(25, 25, 25);
+    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+    border-radius: 8px;
+    width: 400px;
+    padding: 20px;
+    color: #ffffff;
+}
+
+.login-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.social-login {
+    margin-bottom: 20px;
+}
+
+.social-login a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #444;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background 0.3s ease;
+}
+
+.social-login a:hover {
+    background: #555;
+}
+
+.social-login img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.or-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    color: #aaa;
+}
+
+.or-text {
+    margin: 0 10px;
+}
+
+.form-item {
+    margin-bottom: 20px;
+}
+
+.form-item input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: #222;
+    color: #fff;
+}
+
+.form-item button {
+    width: 100%;
+    padding: 10px;
+    background: #444;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form-item button:hover {
+    background: #555;
+}
+
+.signup-link {
+    color: #1e90ff;
+    font-size: 14px;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
