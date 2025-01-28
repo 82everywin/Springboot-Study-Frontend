@@ -122,3 +122,31 @@ export function testSignIn(testLoginRequest) {
         noAuth: true,
     });
 }
+// 🚀 연동된 소셜 로그인 목록 가져오기
+export function getLinkedSocialAccounts() {
+    return request({
+        url: `${API_BASE_URL}/api/v1/oauth2`,
+        method: 'GET',
+    });
+}
+
+// // 🚀 소셜 로그인 연동 해제
+// export function unlinkSocialAccount(provider) {
+//     return request({
+//         url: `${API_BASE_URL}/api/v1/users/oauth2/unlink/${provider}`,
+//         method: 'POST',
+//     });
+// }
+
+
+// 🔹 플랫폼별 연동 해제 API 요청 (헤더에 Authorization 추가)
+export function unlinkOAuth(provider) {
+    return request({
+        url: `${API_BASE_URL}/api/v1/oauth2/unlink/${provider}`,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),  // 🔥 추가
+        },
+    });
+}

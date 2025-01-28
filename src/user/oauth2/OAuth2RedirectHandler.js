@@ -18,6 +18,8 @@ const OAuth2RedirectHandler = ({ loadCurrentlyLoggedInUser }) => {
     const error = getUrlParameter('error');
 
     React.useEffect(() => {
+        console.log("🔗 현재 OAuth2 리다이렉트된 URL:", window.location.href); // 현재 리다이렉트 URL 확인
+
         if (accessToken && refreshToken) {
             // 토큰을 로컬 스토리지에 저장
             localStorage.setItem(ACCESS_TOKEN, accessToken);

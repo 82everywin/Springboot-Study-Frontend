@@ -58,16 +58,21 @@ const SocialLogin = () => {
         { url: NAVER_AUTH_URL, img: naverLogo, alt: 'Naver', text: 'Sign in with Naver' },
     ];
 
+    const handleSocialLogin = (url) => {
+        console.log(`🔗 소셜 로그인 URL: ${url}`);
+        window.location.href = url;
+    };
+
     return (
         <div className="social-login">
             {socialLogins.map((login, index) => (
-                <a
+                <button
                     key={index}
                     className="btn btn-block social-btn"
-                    href={login.url}
+                    onClick={() => handleSocialLogin(login.url)}
                 >
-                    <img src={login.img} alt={login.alt} /> {login.text}
-                </a>
+                    <img src={login.img} alt={login.alt}/> {login.text}
+                </button>
             ))}
         </div>
     );
